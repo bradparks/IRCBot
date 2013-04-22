@@ -19,7 +19,6 @@ var bot = new irc.Client(config.server, config.botName,
         {channels: config.channels, userName: config.userName, realName: config.realName 
 });
 
-
 bot.addListener('error', function(message) {
     console.error('ERROR: %s: %s', message.command, message.args.join(' '));
 });
