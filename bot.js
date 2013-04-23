@@ -17,8 +17,11 @@ var phrases = [
     "HURD DAT.",
     "Let me show you something: http://goo.gl/uCJvV",
     "mah gunz.",
+    "mah boi",
+    "Spaghetti",
     "Trolololololo.",
     "mah dragonz.",
+    "Spagheeeetttttiiiiiiii",
     "We have to cook.",
     "It is known.",
     "8-) Deal with it.",
@@ -36,6 +39,7 @@ var greetings = [
    "Hey brah",
    "Hello thar",
    "sup",
+   "mah boi",
    "Hay",
 ];
 
