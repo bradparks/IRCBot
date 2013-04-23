@@ -84,22 +84,4 @@ bot.addListener("message", function(from, to, text, message) {
     else if(text == '!debug'){
         //bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[4] + ' |');
     }
-
-    /*if(!text.match(patterns[0])){
-        return;
-    }
-    bot.say(from, "¿Que?");
-    */
 });
-
-// Listen for any message, say to him/her in the room
-/*
-bot.addListener("message", function(from, to, text, message) {
-    var pattern = /hello/i;
-
-    if(!text.match(pattern)){
-        return;
-    }
-    bot.say(config.channels[0], "¿Public que?");
-});
-*/
