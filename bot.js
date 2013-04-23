@@ -5,7 +5,7 @@
 // https://github.com/briancain/IRCBot
 
 var config = {
-    channels : ["#ksucdc"],
+    channels : ["#churchofswole"],
     server   : "irc.freenode.net",
     botName  : "TrollBot",
     realName : "freedomBot9001",
@@ -13,23 +13,30 @@ var config = {
 };
 
 var phrases = [
-   "Freedom isn't free.",
-   "HURD DAT.",
-   "Let me show you something: http://goo.gl/uCJvV",
-   "mah gunz.",
-   "Trolololololo.",
-   "mah dragonz.",
-   "We have to cook.",
-   "It is known.",
+    "Freedom isn't free.",
+    "HURD DAT.",
+    "Let me show you something: http://goo.gl/uCJvV",
+    "mah gunz.",
+    "Trolololololo.",
+    "mah dragonz.",
+    "We have to cook.",
+    "It is known.",
+    "8-) Deal with it.",
 ];
 
 var facephrase = [
-   "You're speaking my language, guy!",
-   "Ah the face, an excellent choice.",
-   "( ͡° ͜ʖ ͡°)-tacular",
-   "(╯°□°）╯︵ ┻━┻( ͡° ͜ʖ ͡°)",
-   "( ͡° ͜ʖ ͡°) ┬─┬ ︵ /(.□. \\)",
+    "You're speaking my language, guy!",
+    "Ah the face, an excellent choice.",
+    "( ͡° ͜ʖ ͡°)-tacular",
+    "(╯°□°）╯︵ ┻━┻( ͡° ͜ʖ ͡°)",
+    "( ͡° ͜ʖ ͡°) ┬─┬ ︵ /(.□. \\)",
+];
 
+var greetings = [
+   "Hey brah",
+   "Hello thar",
+   "sup",
+   "Hay",
 ];
 
 var patterns = [
@@ -59,7 +66,7 @@ bot.addListener("join", function(channel, who) {
   if(who.match(me)){
     return;
   }
-  bot.say(channel, who + ': ( ͡° ͜ʖ ͡°) < | Hey brah |');
+  bot.say(channel, who + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
 });
 
 // Listen for any message, PM said user when he posts
