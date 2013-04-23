@@ -14,16 +14,29 @@ var config = {
 
 var phrases = [
    "Freedom isn't free.",
-   "i hurd dat",
+   "HURD DAT.",
    "Let me show you something: http://goo.gl/uCJvV",
-   "mah gunz",
+   "mah gunz.",
+   "Trolololololo.",
+   "mah dragonz.",
+   "We have to cook.",
+   "It is known.",
+];
+
+var facephrase = [
+   "You're speaking my language, guy!",
+   "Ah the face, an excellent choice.",
+   "( ͡° ͜ʖ ͡°)-tacular",
+   "(╯°□°）╯︵ ┻━┻( ͡° ͜ʖ ͡°)",
+   "( ͡° ͜ʖ ͡°) ┬─┬ ︵ /(.□. \\)",
+
 ];
 
 var patterns = [
     /hello/i, 
     /TrollBot/i, 
     /( ͡° ͜ʖ ͡°)/i, 
-    /iunruh/i,
+    /is it happening/i,
 ];
 
 // Get the lib
@@ -33,7 +46,7 @@ var bot = new irc.Client(config.server, config.botName,
         {channels: config.channels, userName: config.userName, realName: config.realName 
 });
 
-bot.addListener('error', function(message) {
+bot.addListener("error", function(message) {
     console.error('ERROR: %s: %s', message.command, message.args.join(' '));
 });
 
@@ -46,7 +59,7 @@ bot.addListener("join", function(channel, who) {
   if(who.match(me)){
     return;
   }
-  bot.say(channel, who + ": ( ͡° ͜ʖ ͡°) <| Hey brah |");
+  bot.say(channel, who + ': ( ͡° ͜ʖ ͡°) < | Hey brah |');
 });
 
 // Listen for any message, PM said user when he posts
@@ -56,13 +69,10 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
     }
     else if(text.match(patterns[2])){
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | You\'re speaking my language, guy! |');
-    }
-    else if(text.match(patterns[3])){
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Hey I know that guy! |');
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[Math.floor(Math.random() * facephrase.length)] + ' |');
     }
     else if(text == '!roll'){
-        var val = Math.floor(Math.random()*6+1);
+        var val = Math.floor((Math.random()*6)+1);
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a die and got a ' + val + ' |'); 
     }
     else if(text == '!about'){
@@ -70,6 +80,9 @@ bot.addListener("message", function(from, to, text, message) {
     }
     else if(text == '!help'){
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !roll, !about, !help |');
+    }
+    else if(text == '!debug'){
+        //bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[4] + ' |');
     }
 
     /*if(!text.match(patterns[0])){
