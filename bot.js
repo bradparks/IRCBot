@@ -5,7 +5,7 @@
 // https://github.com/briancain/IRCBot
 
 var config = {
-    channels : ["#churchofswole"],
+    channels : ["#ksucdc"],
     server   : "irc.freenode.net",
     botName  : "TrollBot",
     realName : "freedomBot9001",
