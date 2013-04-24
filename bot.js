@@ -79,7 +79,7 @@ bot.addListener("message", function(from, to, text, message) {
     if(text.match(patterns[1])){
         if(text.length > 23){
             var sayhello = text.substring(11, 23);
-            var name = text.substring(24, text.length);
+            var name = text.substring(23, text.length);
             name.trim();
             bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
         }
