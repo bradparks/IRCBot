@@ -81,7 +81,7 @@ bot.addListener("message", function(from, to, text, message) {
             var sayhello = text.substring(11, 23);
             var name = text.substring(23, text.length);
             name.trim();
-            bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
+            bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
         }
         else{
             bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
