@@ -48,6 +48,7 @@ var patterns = [
     /TrollBot/i, 
     /( ͡° ͜ʖ ͡°)/i, 
     /is it happening/i,
+    /say hello to/i,
 ];
 
 // Get the lib
@@ -77,8 +78,7 @@ bot.addListener("join", function(channel, who) {
 bot.addListener("message", function(from, to, text, message) {
     
     if(text.match(patterns[1])){
-        if(text.length > 23){
-            var sayhello = text.substring(11, 23);
+        if(text.match(patterns[4])){
             var name = text.substring(23, text.length);
             name.trim();
             bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
