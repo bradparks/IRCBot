@@ -12,6 +12,8 @@ var config = {
     userName : "america",
 };
 
+// Given phrases that the bot will use
+
 var phrases = [
     "It is known.",
     "Freedom isn't free.",
@@ -43,6 +45,8 @@ var greetings = [
    "Hay",
 ];
 
+// Regex patterns
+
 var patterns = [
     /hello/i, 
     /TrollBot/i, 
@@ -57,10 +61,12 @@ var patterns = [
 // Get the lib
 var irc = require("./node-irc/lib/irc.js");
 
+// Init bot with config
 var bot = new irc.Client(config.server, config.botName, 
         {channels: config.channels, userName: config.userName, realName: config.realName 
 });
 
+// Error listener
 bot.addListener("error", function(message) {
     console.error('ERROR: %s: %s', message.command, message.args.join(' '));
 });
@@ -72,7 +78,7 @@ bot.addListener("join", function(channel, who) {
   var me = patterns[1];
   var regbot = patterns[7];
 
-  if(who.match(me) || who.match(regbot)){
+  if(who.match(me) || who.match(regbot)){ // if the person who joins is me or ReggieBot, return
     return;
   }
   bot.say(channel, who + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
@@ -81,41 +87,41 @@ bot.addListener("join", function(channel, who) {
 // Listen for any message
 bot.addListener("message", function(from, to, text, message) {
     
-    if(text.match(patterns[1])){
+    if(text.match(patterns[1])){ // if someone says my name or directs a message at me
         var sayhello = text.substring(10, 22);
         //bot.say(to, sayhello);
-        if(sayhello.match(patterns[4])){
+        if(sayhello.match(patterns[4])){ // if they have said 'say hello to'
             var name = text.substring(23, text.length);
             name.trim();
             //bot.say(to, name);
-            if(name.match(patterns[6])){
+            if(name.match(patterns[6])){ // if the name is PaulBot_
                 bot.say(to, 'PaulBot_: ( ͡° ͜ʖ ͡°) < | is it happening? |');
             }
-            else{
+            else{ // Otherwise say hello to the given name
                 bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
             }
         }
-        else{
+        else{ // otherwise, send a random phrase to the one who originally sent the message
             bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
         }
     }
-    else if(text.match(patterns[2])){
+    else if(text.match(patterns[2])){ // if someone posts the face
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[Math.floor(Math.random() * facephrase.length)] + ' |');
     }
-    else if(text.match(patterns[5])){
+    else if(text.match(patterns[5])){ // if someone says 'it is known'
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[0] + ' |');
     }
-    else if(text == '!roll'){
+    else if(text == '!roll'){ // roll the dice
         var val = Math.floor((Math.random()*6)+1);
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a die and got a ' + val + ' |'); 
     }
-    else if(text == '!about'){
+    else if(text == '!about'){ // prints about
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.0 Developed by `brian |');
     }
-    else if(text == '!help'){
+    else if(text == '!help'){ // prints given ! commands
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !roll, !about, !help |');
     }
-    else if(text == '!debug'){
+    else if(text == '!debug'){ // debug logic
         //bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[4] + ' |');
     }
 });
