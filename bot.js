@@ -5,7 +5,7 @@
 // https://github.com/briancain/IRCBot
 
 var config = {
-    channels : ["#churchofswole"],
+    channels : ["#ksucdc"],
     server   : "irc.freenode.net",
     botName  : "TrollBot",
     realName : "freedomBot9001",
@@ -77,7 +77,15 @@ bot.addListener("join", function(channel, who) {
 bot.addListener("message", function(from, to, text, message) {
     
     if(text.match(patterns[1])){
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
+        if(text.length > 23){
+            var sayhello = text.substring(11, 23);
+            var name = text.substring(24, text.length);
+            name.trim();
+            bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
+        }
+        else{
+            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
+        }
     }
     else if(text.match(patterns[2])){
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[Math.floor(Math.random() * facephrase.length)] + ' |');
