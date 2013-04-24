@@ -50,6 +50,8 @@ var patterns = [
     /is it happening/i,
     /say hello to/i,
     /it is known/i,
+    /PaulBot_/i,
+    /ReggieBot/i,
 ];
 
 // Get the lib
@@ -67,15 +69,16 @@ bot.addListener("error", function(message) {
 bot.addListener("join", function(channel, who) {
   // Welcome them in!
   
-  var me = /TrollBot/i;
-  //if(who == "TrollBot"){
-  if(who.match(me)){
+  var me = patterns[1];
+  var regbot = patterns[7];
+
+  if(who.match(me) || who.match(regbot)){
     return;
   }
   bot.say(channel, who + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
 });
 
-// Listen for any message, PM said user when he posts
+// Listen for any message
 bot.addListener("message", function(from, to, text, message) {
     
     if(text.match(patterns[1])){
@@ -84,7 +87,13 @@ bot.addListener("message", function(from, to, text, message) {
         if(sayhello.match(patterns[4])){
             var name = text.substring(23, text.length);
             name.trim();
-            bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
+            //bot.say(to, name);
+            if(name.match(patterns[6])){
+                bot.say(to, 'PaulBot_: ( ͡° ͜ʖ ͡°) < | is it happening? |');
+            }
+            else{
+                bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
+            }
         }
         else{
             bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
