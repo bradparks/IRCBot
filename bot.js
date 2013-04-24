@@ -13,6 +13,7 @@ var config = {
 };
 
 var phrases = [
+    "It is known.",
     "Freedom isn't free.",
     "HURD DAT.",
     "Let me show you something: http://goo.gl/uCJvV",
@@ -23,7 +24,6 @@ var phrases = [
     "mah dragonz.",
     "Spagheeeetttttiiiiiiii",
     "We have to cook.",
-    "It is known.",
     "8-) Deal with it.",
 ];
 
@@ -49,6 +49,7 @@ var patterns = [
     /( ͡° ͜ʖ ͡°)/i, 
     /is it happening/i,
     /say hello to/i,
+    /it is known/i,
 ];
 
 // Get the lib
@@ -78,7 +79,9 @@ bot.addListener("join", function(channel, who) {
 bot.addListener("message", function(from, to, text, message) {
     
     if(text.match(patterns[1])){
-        if(text.match(patterns[4])){
+        var sayhello = text.substring(10, 22);
+        //bot.say(to, sayhello);
+        if(sayhello.match(patterns[4])){
             var name = text.substring(23, text.length);
             name.trim();
             bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
@@ -89,6 +92,9 @@ bot.addListener("message", function(from, to, text, message) {
     }
     else if(text.match(patterns[2])){
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[Math.floor(Math.random() * facephrase.length)] + ' |');
+    }
+    else if(text.match(patterns[5])){
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[0] + ' |');
     }
     else if(text == '!roll'){
         var val = Math.floor((Math.random()*6)+1);
