@@ -16,6 +16,9 @@ var config = {
 
 var phrases = [
     "It is known.",
+    "Hodor",
+    "Are you down?",
+    "Can you quack like a duck?",
     "Freedom isn't free.",
     "HURD DAT.",
     "Let me show you something: http://goo.gl/uCJvV",
@@ -27,14 +30,17 @@ var phrases = [
     "Spagheeeetttttiiiiiiii",
     "We have to cook.",
     "8-) Deal with it.",
+    "Thanks, Obama!",
 ];
 
 var facephrase = [
     "You're speaking my language, guy!",
     "Ah the face, an excellent choice.",
     "( ͡° ͜ʖ ͡°)-tacular",
-    "(╯°□°）╯︵ ┻━┻( ͡° ͜ʖ ͡°)",
+    "(╯ ͡° ͜ʖ ͡°) ╯︵ ┻━┻( ͡° ͜ʖ ͡°)",
     "( ͡° ͜ʖ ͡°) ┬─┬ ︵ /(.□. \\)",
+    "ʕノ•ᴥ•ʔノ ︵ ┻━┻( ͡° ͜ʖ ͡°)",
+    "(ﾉಥ益ಥ）ﾉ ┻━┻( ͡° ͜ʖ ͡°)",
 ];
 
 var greetings = [
@@ -42,7 +48,9 @@ var greetings = [
    "Hello thar",
    "sup",
    "mah boi",
+   "sup mayne",
    "Hay",
+   "yo bro",
 ];
 
 // Regex patterns
@@ -56,6 +64,8 @@ var patterns = [
     /it is known/i,
     /PaulBot_/i,
     /ReggieBot/i,
+    /Hodor/i,
+    /are you down/i,
 ];
 
 // Get the lib
@@ -110,6 +120,12 @@ bot.addListener("message", function(from, to, text, message) {
     }
     else if(text.match(patterns[5])){ // if someone says 'it is known'
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[0] + ' |');
+    }
+    else if(text.match(patterns[8])){ // Hodor
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[1] + ' |');
+    }
+    else if(text.match(patterns[9])){ // GOAT
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * (4-2)+2)] + ' |');
     }
     else if(text == '!roll'){ // roll the dice
         var val = Math.floor((Math.random()*6)+1);
