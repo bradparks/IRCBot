@@ -53,6 +53,35 @@ var greetings = [
    "yo bro",
 ];
 
+var buzzwords = [
+    "Big Data",
+    "The Cloud",
+    "Web 2.0",
+    "ENTERPRISE",
+    "Synergy",
+    "Vlog",
+    "Aggregator",
+    "Social Networking",
+    "Webscale",
+    "User generated content",
+    "Deliverables",
+    "DEVELOPERS",
+    "AGILE",
+    "WATERFALL",
+    "Interoperability",
+    "Let's touch base",
+    "Follow the sun",
+    "C0 Coverage",
+    "Whiteboard a solution",
+    "Parametric Polymorphism",
+    "Work toward a \"solve\"",
+    "Extensibility Framework",
+    "Enterprise Service Bus",
+    "THE BLOGOSPHERE",
+    "Convention over Configuration",
+    "Homomorphic Push Down Automation",
+];
+
 // Regex patterns
 
 var patterns = [
@@ -126,6 +155,9 @@ bot.addListener("message", function(from, to, text, message) {
     }
     else if(text.match(patterns[9])){ // GOAT
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * (4-2)+2)] + ' |');
+    }
+    else if(text == '!buzzword'){
+            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + buzzwords[Math.floor(Math.random() * buzzwords.length)] + ' |');
     }
     else if(text == '!roll'){ // roll the dice
         var val = Math.floor((Math.random()*6)+1);
