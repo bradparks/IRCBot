@@ -80,6 +80,12 @@ var buzzwords = [
     "THE BLOGOSPHERE",
     "Convention over Configuration",
     "Homomorphic Push Down Automation",
+    "Monolithic",
+    "Fully parallelizable",
+    "Exit strategy",
+    "Peer-to-Peer botnet",
+    "User friendly",
+    "User experience",
 ];
 
 // Regex patterns
@@ -156,18 +162,22 @@ bot.addListener("message", function(from, to, text, message) {
     else if(text.match(patterns[9])){ // GOAT
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * (4-2)+2)] + ' |');
     }
-    else if(text == '!buzzword'){
+    else if(text == '!buzzword'){ // Says a random buzzword
             bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + buzzwords[Math.floor(Math.random() * buzzwords.length)] + ' |');
     }
     else if(text == '!roll'){ // roll the dice
         var val = Math.floor((Math.random()*6)+1);
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a die and got a ' + val + ' |'); 
     }
+    else if(text == '!dnd'){ // 20 sided die
+        var val = Math.floor((Math.random()*20)+1);
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a 20 sided die and got a ' + val + ' |'); 
+    }
     else if(text == '!about'){ // prints about
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.0 Developed by `brian |');
     }
     else if(text == '!help'){ // prints given ! commands
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !roll, !about, !help |');
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic
         //bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[4] + ' |');
