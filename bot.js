@@ -41,6 +41,8 @@ var facephrase = [
     "( ͡° ͜ʖ ͡°) ┬─┬ ︵ /(.□. \\)",
     "ʕノ•ᴥ•ʔノ ︵ ┻━┻( ͡° ͜ʖ ͡°)",
     "(ﾉಥ益ಥ）ﾉ ┻━┻( ͡° ͜ʖ ͡°)",
+    "You think someone would really do that? Just go on the internet and ( ͡° ͜ʖ ͡°)?",
+    "ᕦ( ͡° ͜ʖ ͡°)ᕤ Do you even lift?",
 ];
 
 var greetings = [
@@ -97,7 +99,7 @@ var patterns = [
     /is it happening/i,
     /say hello to/i,
     /it is known/i,
-    /PaulBot_/i,
+    /PaulBot/i,
     /ReggieBot/i,
     /Hodor/i,
     /are you down/i,
@@ -180,6 +182,9 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic
-        //bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[4] + ' |');
+        if(from == '`brian'){
+            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[7] + ' |');
+            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[8] + ' |');
+        }
     }
 });
