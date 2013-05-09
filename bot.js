@@ -182,9 +182,9 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic
-        if(from == '`brian'){
-            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[7] + ' |');
-            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[8] + ' |');
-        }
+        //if(from == '`brian'){
+        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[7] + ' |');
+        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[8] + ' |');
+        //}
     }
 });
