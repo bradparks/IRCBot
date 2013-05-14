@@ -1,6 +1,6 @@
 # IRC Bot
 
-This is a default readme
+Here is an IRC Bot. Maybe in the future I'll have a collection of bots that can do different objectives. But for now, there is only TrollBot.
 
 ## Requirements
 
