@@ -181,7 +181,7 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + pro + ' |'); 
     }
     else if(text == '!about'){ // prints about
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.0 Developed by `brian |');
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.1 Developed by `brian |');
     }
     else if(text == '!help'){ // prints given ! commands
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !proof, !roll, !help |');
