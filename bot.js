@@ -107,6 +107,7 @@ var patterns = [
 
 // Get the lib
 var irc = require("./node-irc/lib/irc.js");
+var proof = require("./proofs.js");
 
 // Init bot with config
 var bot = new irc.Client(config.server, config.botName, 
@@ -175,11 +176,15 @@ bot.addListener("message", function(from, to, text, message) {
         var val = Math.floor((Math.random()*20)+1);
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a 20 sided die and got a ' + val + ' |'); 
     }
+    else if(text == '!proof'){ // Display a proof
+        var pro = proof.getProof();
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + pro + ' |'); 
+    }
     else if(text == '!about'){ // prints about
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.0 Developed by `brian |');
     }
     else if(text == '!help'){ // prints given ! commands
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !roll, !help |');
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !proof, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic
         //if(from == '`brian'){
