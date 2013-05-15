@@ -183,7 +183,7 @@ bot.addListener("message", function(from, to, text, message) {
     else if(text == '!about'){ // prints about
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.1 Developed by `brian |');
     }
-    else if(text == '!help'){ // prints given ! commands
+    else if(text == '!help' || text == '!halp'){ // prints given ! commands
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !proof, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic

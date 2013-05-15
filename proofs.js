@@ -113,16 +113,26 @@ function randomSecond()
     return second[ind][0];
 }
 
-var firstInd = Math.floor(Math.random() * first.length);
+function getfirstInd()
+{
+    var firstInd = Math.floor(Math.random() * first.length);
+    return firstInd;
+}
 
-var addn = (first[firstInd][0] == "a" ||
-            first[firstInd][0] == "e" ||
-            first[firstInd][0] == "i" ||
-            first[firstInd][0] == "o" ||
-            first[firstInd][0] == "u");
+function getaddn(firstInd)
+{
+    var addn = (first[firstInd][0] == "a" ||
+                first[firstInd][0] == "e" ||
+                first[firstInd][0] == "i" ||
+                first[firstInd][0] == "o" ||
+                first[firstInd][0] == "u");
+    return addn;
+}
 
 function getProof()
 {
+    var firstInd = getfirstInd();
+    var addn = getaddn(firstInd);
     var theproof = "The proof is trivial! " + randomStart() + (addn ? "n" : "") + " " + first[firstInd] + " " + randomSecond();
     return theproof;
 }
