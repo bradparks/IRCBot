@@ -1,4 +1,4 @@
-#!/usr/bin/env mode
+#!/usr/bin/env node
 
 // Written by: Brian Cain
 // brianccain@gmail.com
