@@ -1,6 +1,6 @@
 # IRC Bot
 
-Here is an IRC Bot. Maybe in the future I'll have a collection of bots that can do different objectives. But for now, there is only TrollBot.
+Here are two IRC bots, TrollBot (bot.js) and Richard Stallman bot (richard.js). They both do two different things so feel free to mess with both of them.
 
 ## Requirements
 
