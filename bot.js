@@ -31,6 +31,8 @@ var phrases = [
     "We have to cook.",
     "8-) Deal with it.",
     "Thanks, Obama!",
+    "Yeah Mr. White! Yeah science!",
+    "I ( ͡° ͜ʖ ͡°) Ted",
 ];
 
 var facephrase = [
@@ -103,6 +105,7 @@ var patterns = [
     /ReggieBot/i,
     /Hodor/i,
     /are you down/i,
+    /!d\d*/i,
 ];
 
 // Get the lib
@@ -145,7 +148,7 @@ bot.addListener("message", function(from, to, text, message) {
             if(name.match(patterns[6])){ // if the name is PaulBot_
                 bot.say(to, 'PaulBot_: ( ͡° ͜ʖ ͡°) < | is it happening? |');
             }
-            else{ // Otherwise say hello to the given name
+            else { // Otherwise say hello to the given name
                 bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
             }
         }
@@ -172,9 +175,11 @@ bot.addListener("message", function(from, to, text, message) {
         var val = Math.floor((Math.random()*6)+1);
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a die and got a ' + val + ' |'); 
     }
-    else if(text == '!dnd'){ // 20 sided die
-        var val = Math.floor((Math.random()*20)+1);
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a 20 sided die and got a ' + val + ' |'); 
+    else if(text.match(patterns[10])){ // N sided die
+        var sides = text.substring(2, text.length);
+        var intSide = parseInt(sides);
+        var val = Math.floor((Math.random()*intSide)+1);
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a ' + intSide + ' sided die and got a ' + val + ' |'); 
     }
     else if(text == '!proof'){ // Display a proof
         var pro = proof.getProof();
@@ -184,12 +189,12 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.1 Developed by `brian |');
     }
     else if(text == '!help' || text == '!halp'){ // prints given ! commands
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !dnd, !proof, !roll, !help |');
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !d<number> (i.e. !d20), !proof, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic
         //if(from == '`brian'){
-        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[7] + ' |');
-        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[8] + ' |');
+        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[16] + ' |');
+        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[17] + ' |');
         //}
     }
 });

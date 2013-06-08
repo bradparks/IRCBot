@@ -59,6 +59,8 @@ bot.addListener("error", function(message) {
 
 // Listen for any message
 bot.addListener("message", function(from, to, text, message) {
+    if(from.match(/TrollBot/i)){ return; }
+
     if(text.match(patterns[4])){
         bot.say(to, from + ": " + phrases[1]);
     }
