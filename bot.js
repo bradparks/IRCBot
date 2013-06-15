@@ -105,7 +105,7 @@ var patterns = [
     /ReggieBot/i,
     /Hodor/i,
     /are you down/i,
-    /^!d\d*$/i,
+    /^!d\d+$/i,
 ];
 
 // Get the lib
@@ -178,6 +178,9 @@ bot.addListener("message", function(from, to, text, message) {
     else if(text.match(patterns[10])){ // N sided die
         var sides = text.substring(2, text.length);
         var intSide = parseInt(sides);
+
+        if(intSide <= 0) return;
+
         var val = Math.floor((Math.random()*intSide)+1);
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a ' + intSide + ' sided die and got a ' + val + ' |'); 
     }
