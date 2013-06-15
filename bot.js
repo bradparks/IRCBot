@@ -105,7 +105,7 @@ var patterns = [
     /ReggieBot/i,
     /Hodor/i,
     /are you down/i,
-    /!d\d*/i,
+    /^!d\d*$/i,
 ];
 
 // Get the lib
