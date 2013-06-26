@@ -107,6 +107,7 @@ var patterns = [
     /are you down/i,
     /^!d\d+$/i,
     /s\/\w+\/\w+\//,
+    /s\/([^\/]*)\/([^\/]*)\//,
 ];
 
 // Get the lib
@@ -165,8 +166,8 @@ bot.addListener("message", function(from, to, text, message) {
 
     // bot.say(to, 'The previous message was: ' + msg);
 
-    if(text.match(patterns[11])){
-        var words = text.match(/\/(.*?)\/(.*?)\//);
+    if(text.match(patterns[12])){
+        var words = text.match(patterns[12]);
 
         if(msg.match(words[1])){
             var newstr = msg.replace(words[1], words[2]);
