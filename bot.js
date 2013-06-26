@@ -106,6 +106,7 @@ var patterns = [
     /Hodor/i,
     /are you down/i,
     /^!d\d+$/i,
+    /s\/\w+\/\w+\//,
 ];
 
 // Get the lib
@@ -135,10 +136,44 @@ bot.addListener("join", function(channel, who) {
   bot.say(channel, who + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
 });
 
+var prev = "";
+var usr = "";
+
+function setUser(text){
+    usr = text;
+}
+
+function getUser(){
+    return usr;
+}
+
+function setMessage(text){
+    prev = text;
+}
+
+function getMessage(){
+    return prev;
+}
+
 // Listen for any message
 bot.addListener("message", function(from, to, text, message) {
     
-    if(text.match(patterns[1])){ // if someone says my name or directs a message at me
+    var msg = getMessage();
+    var usr = getUser();
+    setMessage(text); // needs who said it
+    setUser(from);
+
+    // bot.say(to, 'The previous message was: ' + msg);
+
+    if(text.match(patterns[11])){
+        var words = text.match(/\/(.*?)\/(.*?)\//);
+
+        if(msg.match(words[1])){
+            var newstr = msg.replace(words[1], words[2]);
+            bot.say(to, '( ͡° ͜ʖ ͡°) < | Wut ' + usr + ' meant 2 say wuz: ' + newstr + ' |');
+        }
+    }
+    else if(text.match(patterns[1])){ // if someone says my name or directs a message at me
         var sayhello = text.substring(10, 22);
         //bot.say(to, sayhello);
         if(sayhello.match(patterns[4])){ // if they have said 'say hello to'

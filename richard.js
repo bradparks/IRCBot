@@ -64,7 +64,7 @@ bot.addListener("message", function(from, to, text, message) {
     if(text.match(patterns[4])){
         bot.say(to, from + ": " + phrases[1]);
     }
-    else if(text.match(patterns[0]) && !text.match(patterns[1]) && !text.match(patterns[2]) && !text.match(patterns[2])){
+    else if(text.match(patterns[0]) && !text.match(patterns[1]) && !text.match(patterns[2]) && !text.match(patterns[3])){
         bot.say(to, phrases[0]+from);
         bot.say(to, gnulinux[Math.floor(Math.random() * gnulinux.length)]);
     }
