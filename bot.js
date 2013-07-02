@@ -169,9 +169,16 @@ bot.addListener("message", function(from, to, text, message) {
     if(text.match(patterns[12])){
         var words = text.match(patterns[12]);
 
-        if(msg.match(words[1])){
-            var newstr = msg.replace(words[1], words[2]);
-            bot.say(to, '( ͡° ͜ʖ ͡°) < | Wut ' + usr + ' meant 2 say wuz: ' + newstr + ' |');
+        try{
+            if(msg.match(words[1])){
+                var newstr = msg.replace(words[1], words[2]);
+                bot.say(to, '( ͡° ͜ʖ ͡°) < | Wut ' + usr + ' meant 2 say wuz: ' + newstr + ' |');
+            }
+        }
+        catch (e) {
+            console.log("An error has been thrown");
+            console.log(e);
+            bot.say(to, '( ͡° ͜ʖ ͡°) < | ' + from + ' is trying to kill me!! |');
         }
     }
     else if(text.match(patterns[1])){ // if someone says my name or directs a message at me
