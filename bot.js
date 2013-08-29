@@ -110,6 +110,11 @@ var patterns = [
     /s\/([^\/]*)\/([^\/]*)\//,
 ];
 
+var rank_patterns = [
+    /^[a-zA-z\d]*\+\+/i,
+    /^[a-zA-z\d]*\-\-/i,
+];
+
 // Get the lib
 var irc = require("./node-irc/lib/irc.js");
 var proof = require("./proofs.js");
@@ -166,7 +171,7 @@ bot.addListener("message", function(from, to, text, message) {
 
     // bot.say(to, 'The previous message was: ' + msg);
 
-    if(text.match(patterns[12])){
+    if(text.match(patterns[12])){ // s/before/after style replacement
         var words = text.match(patterns[12]);
 
         try{
