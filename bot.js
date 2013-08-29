@@ -110,7 +110,7 @@ var patterns = [
     /it is known/i,
     /PaulBot/i,
     /ReggieBot/i,
-    /Hodor/i,
+    /h.*o.*d.*o.*r.*/i,
     /are you down/i,
     /^!d\d+$/i,
     /s\/\w+\/\w+\//,
