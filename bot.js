@@ -90,6 +90,13 @@ var buzzwords = [
     "Peer-to-Peer botnet",
     "User friendly",
     "User experience",
+    "Sharding",
+    "NoSQL database",
+    "Infinite scalability",
+    "Service-oriented architecture",
+    "Adoption-ready",
+    "Asynchronous pipeline",
+    "Node.js"
 ];
 
 // Regex patterns
