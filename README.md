@@ -17,3 +17,7 @@ You must also have NodeJS installed
 First, edit the bot config for the channel and IRC server you want it to run on in the code, then in terminal type:
 
     node bot.js
+
+### Todo
+
+Add 3-part random buzz phrase generator

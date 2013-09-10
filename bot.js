@@ -33,6 +33,8 @@ var phrases = [
     "Thanks, Obama!",
     "Yeah Mr. White! Yeah science!",
     "I ( ͡° ͜ʖ ͡°) Ted",
+    "I like turtles",
+    "Have an A1 day"
 ];
 
 var facephrase = [
@@ -55,6 +57,11 @@ var greetings = [
    "sup mayne",
    "Hay",
    "yo bro",
+   "wutup",
+   "ohai",
+   "Prepare yourself",
+   "lolhi",
+   "( ͡° ͜ʖ ͡°)",
 ];
 
 var buzzwords = [
@@ -103,7 +110,7 @@ var buzzwords = [
 
 var patterns = [
     /hello/i, 
-    /TrollBot/i, 
+    /(TrollBot|Trollbawt)/i,
     /( ͡° ͜ʖ ͡°)/i, 
     /is it happening/i,
     /say hello to/i,
@@ -226,6 +233,9 @@ bot.addListener("message", function(from, to, text, message) {
     else if(text == '!buzzword'){ // Says a random buzzword
             bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + buzzwords[Math.floor(Math.random() * buzzwords.length)] + ' |');
     }
+    else if(text == '!buzzphrase'){ // Generates a random phrase from buzzwords
+
+    }
     else if(text == '!roll'){ // roll the dice
         var val = Math.floor((Math.random()*6)+1);
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a die and got a ' + val + ' |'); 
@@ -247,12 +257,8 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.1 Developed by `brian |');
     }
     else if(text == '!help' || text == '!halp'){ // prints given ! commands
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !d<number> (i.e. !d20), !proof, !roll, !help |');
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !buzzphrase, !d<number> (i.e. !d20), !proof, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic
-        //if(from == '`brian'){
-        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[16] + ' |');
-        //    bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[17] + ' |');
-        //}
     }
 });
