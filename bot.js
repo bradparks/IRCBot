@@ -34,7 +34,8 @@ var phrases = [
     "Yeah Mr. White! Yeah science!",
     "I ( ͡° ͜ʖ ͡°) Ted",
     "I like turtles",
-    "Have an A1 day"
+    "Have an A1 day",
+    "how bout dat app tho",
 ];
 
 var facephrase = [
