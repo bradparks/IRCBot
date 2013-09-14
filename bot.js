@@ -36,6 +36,7 @@ var phrases = [
     "I like turtles",
     "Have an A1 day",
     "how bout dat app tho",
+    "DO IT LIVE: http://goo.gl/JNbyo",
 ];
 
 var facephrase = [
@@ -181,8 +182,15 @@ bot.addListener("message", function(from, to, text, message) {
     
     var msg = getMessage();
     var usr = getUser();
+
+    // lul
+    if (from == 'colecoop') {
+        from = 'agent ' + from;
+    }
+
     setMessage(text); // needs who said it
     setUser(from);
+
 
     // bot.say(to, 'The previous message was: ' + msg);
 
@@ -231,6 +239,9 @@ bot.addListener("message", function(from, to, text, message) {
     else if(text.match(patterns[9])){ // GOAT
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * (4-2)+2)] + ' |');
     }
+    else if(text == '!doitlive') {
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[21] + ' |');
+    }
     else if(text == '!buzzword'){ // Says a random buzzword
             bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + buzzwords[Math.floor(Math.random() * buzzwords.length)] + ' |');
     }
@@ -258,7 +269,7 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.1 Developed by `brian |');
     }
     else if(text == '!help' || text == '!halp'){ // prints given ! commands
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !buzzphrase, !d<number> (i.e. !d20), !proof, !roll, !help |');
+        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !buzzphrase, !d<number> (i.e. !d20), !doitlive, !proof, !roll, !help |');
     }
     else if(text == '!debug'){ // debug logic
     }
