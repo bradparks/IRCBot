@@ -155,26 +155,32 @@ bot.addListener("join", function(channel, who) {
   if(who.match(me) || who.match(regbot)){ // if the person who joins is me or ReggieBot, return
     return;
   }
-  bot.say(channel, who + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
+  bot.say(channel, who + ': ' + formulateMessage(greetings[Math.floor(Math.random() * greetings.length)]));
 });
 
 var prev = "";
 var usr = "";
 
-function setUser(text){
+function setUser(text) {
     usr = text;
 }
 
-function getUser(){
+function getUser() {
     return usr;
 }
 
-function setMessage(text){
+function setMessage(text) {
     prev = text;
 }
 
-function getMessage(){
+function getMessage() {
     return prev;
+}
+
+function formulateMessage(msg) {
+    var start = '( ͡° ͜ʖ ͡°) < | ',
+        end = ' |';
+    return start + msg + end;
 }
 
 // Listen for any message
@@ -220,37 +226,37 @@ bot.addListener("message", function(from, to, text, message) {
                 bot.say(to, 'PaulBot_: ( ͡° ͜ʖ ͡°) < | is it happening? |');
             }
             else { // Otherwise say hello to the given name
-                bot.say(to, name + ': ( ͡° ͜ʖ ͡°) < | ' + greetings[Math.floor(Math.random() * greetings.length)] + ' |');
+                bot.say(to, name + ': ' + formulateMessage(greetings[Math.floor(Math.random() * greetings.length)]));
             }
         }
         else{ // otherwise, send a random phrase to the one who originally sent the message
-            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * phrases.length)] + ' |');
+            bot.say(to, from + ': ' + formulateMessage(phrases[Math.floor(Math.random() * phrases.length)]));
         }
     }
     else if(text.match(patterns[2])){ // if someone posts the face
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + facephrase[Math.floor(Math.random() * facephrase.length)] + ' |');
+        bot.say(to, from + ': ' + formulateMessage(facephrase[Math.floor(Math.random() * facephrase.length)]));
     }
     else if(text.match(patterns[5])){ // if someone says 'it is known'
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[0] + ' |');
+        bot.say(to, from + ': ' + formulateMessage(phrases[0]));
     }
     else if(text.match(patterns[8])){ // Hodor
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[1] + ' |');
+        bot.say(to, from + ': ' + formulateMessage(phrases[1]));
     }
     else if(text.match(patterns[9])){ // GOAT
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[Math.floor(Math.random() * (4-2)+2)] + ' |');
+        bot.say(to, from + ': ' + formulateMessage(phrases[Math.floor(Math.random() * (4-2)+2)]));
     }
     else if(text == '!doitlive') {
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + phrases[21] + ' |');
+        bot.say(to, from + ': ' + formulateMessage(phrases[21]));
     }
     else if(text == '!buzzword'){ // Says a random buzzword
-            bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + buzzwords[Math.floor(Math.random() * buzzwords.length)] + ' |');
+            bot.say(to, from + ': ' + formulateMessage(buzzwords[Math.floor(Math.random() * buzzwords.length)]));
     }
     else if(text == '!buzzphrase'){ // Generates a random phrase from buzzwords
 
     }
     else if(text == '!roll'){ // roll the dice
         var val = Math.floor((Math.random()*6)+1);
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a die and got a ' + val + ' |'); 
+        bot.say(to, from + ': ' + formulateMessage('Rolled a die and got a ' + val)); 
     }
     else if(text.match(patterns[10])){ // N sided die
         var sides = text.substring(2, text.length);
@@ -259,17 +265,17 @@ bot.addListener("message", function(from, to, text, message) {
         if(intSide <= 0) return;
 
         var val = Math.floor((Math.random()*intSide)+1);
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Rolled a ' + intSide + ' sided die and got a ' + val + ' |'); 
+        bot.say(to, from + ': ' + formulateMessage('Rolled a ' + intSide + ' sided die and got a ' + val)); 
     }
     else if(text == '!proof'){ // Display a proof
         var pro = proof.getProof();
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | ' + pro + ' |'); 
+        bot.say(to, from + ': ' + formulateMessage(pro)); 
     }
     else if(text == '!about'){ // prints about
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | TrollBot 1.1 Developed by `brian |');
+        bot.say(to, from + ': ' + formulateMessage('TrollBot 1.1 Developed by `brian'));
     }
     else if(text == '!help' || text == '!halp'){ // prints given ! commands
-        bot.say(to, from + ': ( ͡° ͜ʖ ͡°) < | Commands: !about, !buzzword, !buzzphrase, !d<number> (i.e. !d20), !doitlive, !proof, !roll, !help |');
+        bot.say(to, from + ': ' + formulateMessage('Commands: !about, !buzzword, !buzzphrase, !d<number> (i.e. !d20), !doitlive, !proof, !roll, !help'));
     }
     else if(text == '!debug'){ // debug logic
     }
