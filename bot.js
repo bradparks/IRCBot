@@ -152,7 +152,7 @@ bot.addListener("join", function(channel, who) {
   var me = patterns[1];
   var regbot = patterns[7];
 
-  if(who.match(me) || who.match(regbot)){ // if the person who joins is me or ReggieBot, return
+  if(who.match(me) || who.match(regbot)) { // if the person who joins is me or ReggieBot, return
     return;
   }
   bot.say(channel, who + ': ' + formulateMessage(greetings[Math.floor(Math.random() * greetings.length)]));
@@ -189,22 +189,17 @@ bot.addListener("message", function(from, to, text, message) {
     var msg = getMessage();
     var usr = getUser();
 
-    // lul
-    if (from == 'colecoop') {
-        from = 'agent ' + from;
-    }
-
     setMessage(text); // needs who said it
     setUser(from);
 
 
     // bot.say(to, 'The previous message was: ' + msg);
 
-    if(text.match(patterns[12])){ // s/before/after style replacement
+    if(text.match(patterns[12])) { // s/before/after style replacement
         var words = text.match(patterns[12]);
 
         try{
-            if(msg.match(words[1])){
+            if(msg.match(words[1])) {
                 var newstr = msg.replace(words[1], words[2]);
                 bot.say(to, '( ͡° ͜ʖ ͡°) < | Wut ' + usr + ' meant 2 say wuz: ' + newstr + ' |');
             }
@@ -215,14 +210,14 @@ bot.addListener("message", function(from, to, text, message) {
             bot.say(to, '( ͡° ͜ʖ ͡°) < | ' + from + ' is trying to kill me!! |');
         }
     }
-    else if(text.match(patterns[1])){ // if someone says my name or directs a message at me
+    else if(text.match(patterns[1])) { // if someone says my name or directs a message at me
         var sayhello = text.substring(10, 22);
         //bot.say(to, sayhello);
-        if(sayhello.match(patterns[4])){ // if they have said 'say hello to'
+        if(sayhello.match(patterns[4])) { // if they have said 'say hello to'
             var name = text.substring(23, text.length);
             name.trim();
             //bot.say(to, name);
-            if(name.match(patterns[6])){ // if the name is PaulBot_
+            if(name.match(patterns[6])) { // if the name is PaulBot_
                 bot.say(to, 'PaulBot_: ( ͡° ͜ʖ ͡°) < | is it happening? |');
             }
             else { // Otherwise say hello to the given name
@@ -233,32 +228,32 @@ bot.addListener("message", function(from, to, text, message) {
             bot.say(to, from + ': ' + formulateMessage(phrases[Math.floor(Math.random() * phrases.length)]));
         }
     }
-    else if(text.match(patterns[2])){ // if someone posts the face
+    else if(text.match(patterns[2])) { // if someone posts the face
         bot.say(to, from + ': ' + formulateMessage(facephrase[Math.floor(Math.random() * facephrase.length)]));
     }
-    else if(text.match(patterns[5])){ // if someone says 'it is known'
+    else if(text.match(patterns[5])) { // if someone says 'it is known'
         bot.say(to, from + ': ' + formulateMessage(phrases[0]));
     }
-    else if(text.match(patterns[8])){ // Hodor
+    else if(text.match(patterns[8])) { // Hodor
         bot.say(to, from + ': ' + formulateMessage(phrases[1]));
     }
-    else if(text.match(patterns[9])){ // GOAT
+    else if(text.match(patterns[9])) { // GOAT
         bot.say(to, from + ': ' + formulateMessage(phrases[Math.floor(Math.random() * (4-2)+2)]));
     }
     else if(text == '!doitlive') {
         bot.say(to, from + ': ' + formulateMessage(phrases[21]));
     }
-    else if(text == '!buzzword'){ // Says a random buzzword
+    else if(text == '!buzzword') { // Says a random buzzword
             bot.say(to, from + ': ' + formulateMessage(buzzwords[Math.floor(Math.random() * buzzwords.length)]));
     }
-    else if(text == '!buzzphrase'){ // Generates a random phrase from buzzwords
+    else if(text == '!buzzphrase') { // Generates a random phrase from buzzwords
 
     }
-    else if(text == '!roll'){ // roll the dice
+    else if(text == '!roll') { // roll the dice
         var val = Math.floor((Math.random()*6)+1);
         bot.say(to, from + ': ' + formulateMessage('Rolled a die and got a ' + val)); 
     }
-    else if(text.match(patterns[10])){ // N sided die
+    else if(text.match(patterns[10])) { // N sided die
         var sides = text.substring(2, text.length);
         var intSide = parseInt(sides);
 
@@ -267,16 +262,16 @@ bot.addListener("message", function(from, to, text, message) {
         var val = Math.floor((Math.random()*intSide)+1);
         bot.say(to, from + ': ' + formulateMessage('Rolled a ' + intSide + ' sided die and got a ' + val)); 
     }
-    else if(text == '!proof'){ // Display a proof
+    else if(text == '!proof') { // Display a proof
         var pro = proof.getProof();
         bot.say(to, from + ': ' + formulateMessage(pro)); 
     }
-    else if(text == '!about'){ // prints about
+    else if(text == '!about') { // prints about
         bot.say(to, from + ': ' + formulateMessage('TrollBot 1.1 Developed by `brian'));
     }
-    else if(text == '!help' || text == '!halp'){ // prints given ! commands
+    else if(text == '!help' || text == '!halp') { // prints given ! commands
         bot.say(to, from + ': ' + formulateMessage('Commands: !about, !buzzword, !buzzphrase, !d<number> (i.e. !d20), !doitlive, !proof, !roll, !help'));
     }
-    else if(text == '!debug'){ // debug logic
+    else if(text == '!debug') { // debug logic
     }
 });
