@@ -37,6 +37,7 @@ var phrases = [
     "Have an A1 day",
     "how bout dat app tho",
     "DO IT LIVE: http://goo.gl/JNbyo",
+    "Hacking planets, all day erry day",
 ];
 
 var facephrase = [
