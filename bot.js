@@ -257,7 +257,7 @@ bot.addListener("message", function(from, to, text, message) {
             bot.say(to, from + ': ' + formulateMessage(buzzwords[Math.floor(Math.random() * buzzwords.length)]));
     }
     else if(text == '!buzzphrase') { // Generates a random phrase from buzzwords
-
+        // not implemented yet
     }
     else if(text == '!roll') { // roll the dice
         var val = Math.floor((Math.random()*6)+1);
