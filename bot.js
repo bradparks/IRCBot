@@ -65,6 +65,7 @@ var greetings = [
    "Prepare yourself",
    "lolhi",
    "( ͡° ͜ʖ ͡°)",
+   "i liek u",
 ];
 
 var buzzwords = [
@@ -106,7 +107,15 @@ var buzzwords = [
     "Service-oriented architecture",
     "Adoption-ready",
     "Asynchronous pipeline",
-    "Node.js"
+    "Node.js",
+    "Mah sql!",
+    "Mah cloudz!",
+    "Operator overloading",
+    "Currying",
+    "Lambda calculus",
+    "Lexical analysis",
+    "Context-free grammar",
+    "Lazy evaluation",
 ];
 
 // Regex patterns
@@ -193,9 +202,6 @@ bot.addListener("message", function(from, to, text, message) {
     setMessage(text); // needs who said it
     setUser(from);
 
-
-    // bot.say(to, 'The previous message was: ' + msg);
-
     if(text.match(patterns[12])) { // s/before/after style replacement
         var words = text.match(patterns[12]);
 
@@ -241,7 +247,7 @@ bot.addListener("message", function(from, to, text, message) {
     else if(text.match(patterns[9])) { // GOAT
         bot.say(to, from + ': ' + formulateMessage(phrases[Math.floor(Math.random() * (4-2)+2)]));
     }
-    else if(text == '!doitlive') {
+    else if(text == '!doitlive') { // Let everyone know Trollbot is doing it live
         bot.say(to, from + ': ' + formulateMessage(phrases[21]));
     }
     else if(text == '!buzzword') { // Says a random buzzword
