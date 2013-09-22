@@ -116,6 +116,8 @@ var buzzwords = [
     "Lexical analysis",
     "Context-free grammar",
     "Lazy evaluation",
+    "Disruptive innovation",
+    "Survival strategy",
 ];
 
 // Regex patterns
