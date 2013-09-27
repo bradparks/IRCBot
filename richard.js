@@ -9,7 +9,7 @@ var config = {
     server   : "irc.freenode.net",
     botName  : "richard_stallman",
     realName : "Richard Stallman",
-    userName : "rms",
+    userName : "rms-derp",
 };
 
 // Given phrases that the bot will use
