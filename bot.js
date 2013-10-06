@@ -267,7 +267,7 @@ bot.addListener("message", function(from, to, text, message) {
         var sides = text.substring(2, text.length);
         var intSide = parseInt(sides);
 
-        if(intSide <= 0) return;
+        if(intSide <= 1) return;
 
         var val = Math.floor((Math.random()*intSide)+1);
         bot.say(to, from + ': ' + formulateMessage('Rolled a ' + intSide + ' sided die and got a ' + val)); 
@@ -280,7 +280,7 @@ bot.addListener("message", function(from, to, text, message) {
         bot.say(to, from + ': ' + formulateMessage('TrollBot 1.1 Developed by `brian'));
     }
     else if(text == '!help' || text == '!halp') { // prints given ! commands
-        bot.say(to, from + ': ' + formulateMessage('Commands: !about, !buzzword, !buzzphrase, !d<number> (i.e. !d20), !doitlive, !proof, !roll, !help'));
+        bot.say(to, from + ': ' + formulateMessage('Commands: !about, !buzzword, !d<number> (i.e. !d20), !doitlive, !proof, !roll, !help'));
     }
     else if(text == '!debug') { // debug logic
     }
