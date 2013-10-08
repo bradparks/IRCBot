@@ -119,6 +119,8 @@ var buzzwords = [
     "Lazy evaluation",
     "Disruptive innovation",
     "Survival strategy",
+    "Transcompiler",
+    "Socially Enabled Trust Decisions",
 ];
 
 // Regex patterns
