@@ -121,6 +121,10 @@ var buzzwords = [
     "Survival strategy",
     "Transcompiler",
     "Socially Enabled Trust Decisions",
+    "Return On Investment",
+    "Strategic Partnership",
+    "Feature rich",
+    "Synergistic",
 ];
 
 // Regex patterns
