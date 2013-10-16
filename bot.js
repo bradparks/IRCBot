@@ -125,6 +125,9 @@ var buzzwords = [
     "Strategic Partnership",
     "Feature rich",
     "Synergistic",
+    "Secret Sauce",
+    "Peak Performance",
+    "Customer Centric",
 ];
 
 // Regex patterns
