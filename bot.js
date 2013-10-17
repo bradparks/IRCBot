@@ -128,6 +128,10 @@ var buzzwords = [
     "Secret Sauce",
     "Peak Performance",
     "Customer Centric",
+    "Snackable Content",
+    "Clickability",
+    "Showrooming",
+    "Agile Marketing",
 ];
 
 // Regex patterns
